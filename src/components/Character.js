@@ -10,6 +10,10 @@ const StyledCharacter = styled.div`
      padding: 1%;
      margin: 1%;
      width: 25%;
+
+     &:hover {
+         transform: scale(1.2)
+     }
  }
 `
 
