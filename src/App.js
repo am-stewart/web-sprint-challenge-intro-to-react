@@ -4,7 +4,17 @@ import axios from 'axios';
 import Character from './components/Character';
 import styled from 'styled-components';
 
+const StyledApp = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 8px;
+  background-color: ${props => props.theme.black};
 
+  h1{
+    color: ${props => props.theme.yellow};
+  }
+`
 const App = () => {
   // Try to think through what state you'll need for this app before starting. Then build out
   // the state properties here.
@@ -16,6 +26,7 @@ useEffect(() => {
   axios.get('https://swapi.dev/api/people')
   .then(res => {
     setCharacter(res.data)
+    console.log(res.data)
   })
   .catch(err => {
     console.log('error!')
@@ -23,7 +34,7 @@ useEffect(() => {
 },[])
 
   return (
-    <div className="App">
+    <StyledApp className="App">
       <h1 className="Header">Characters</h1>
       <div>
         {
@@ -32,7 +43,7 @@ useEffect(() => {
           })
         }
       </div>
-    </div>
+    </StyledApp>
   );
 }
 
