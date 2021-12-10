@@ -5,9 +5,6 @@ import Character from './components/Character';
 import styled from 'styled-components';
 
 const StyledApp = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   padding: 8px;
   background-color: ${props => props.theme.black};
 
@@ -26,7 +23,6 @@ useEffect(() => {
   axios.get('https://swapi.dev/api/people')
   .then(res => {
     setCharacter(res.data)
-    console.log(res.data)
   })
   .catch(err => {
     console.log('error!')
